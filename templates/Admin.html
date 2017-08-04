@@ -2,6 +2,17 @@
     <ion-content>
         <div class="row marginbottom1px">
 
+            
+            <back class="col-50" ui-sref="app.Entrance">
+                    <p></p><i class="icon ion-arrow-left-a font100"></i><p class="fontnext">página principal</p>
+            </back>
+            <hr />
+            <back class="col-50" ui-sref="app.filter">
+                <p></p><i class="icon ion-ios-home font100"></i><p class="fontnext">Buscar inmueble</p>
+            </back>
+        </div>
+        <div class="row marginbottom1px">
+
             <back class="col-50">
                 <a href="mailto:ventas@sant-just.com?Subject=Solicitud%20APP-SJ." target="_top" style="color:white">
                     <p></p><i class="ion-ios-email-outline font100"></i><p class="fontnext">Mandar email</p>
@@ -9,13 +20,13 @@
             </back>
 
             <hr />
-            <back class="col-50" ng-click="myRequests()">
+            <back class="col-50" ui-sref="app.myRequests">
                 <p></p><img class="font100" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAP1BMVEVHcEz///////////////////////////////////////////////////////////////////////////////9KjZoYAAAAFHRSTlMAz9DgUMBwEEDwYKC/IDCAsJB/X36OgKsAAAHsSURBVHhezZTbDqQgEESbOwjeZs7/f+smEIc4Qnbedk+iEklJddEo/wfhVVIqryA/syUqaZMfiQlnQ7COFCcu3mdJoC4bwXBKJWNG3uJBo2liAdw16UjH+9t1AQ4fgwQNqTT9x068PtVZwPj2pmog+RAW6QRrUNLJsDfBR+WfpRr6N/wjERiUa1HdKN+5J5pEqX7JCte8ero42OtT6+u6SRb0M3Hw4WlMS6Ng72WWUiPEz8pfSfcZBafIlsGHsEplldUa9MdXvq2e0Kl+bunbFxSAvqzmbqC1yRG2VJtrOwBjRd4G0H1THFEaq1eQfGt6tbUYGu6WhWEVkc2eCki5zW0a8iYSwIFb5AaIHFR0DzbsQKmzT0ACaLfb+0asO4SpJOJkgCNOJZ4sAzJ+KjnZZcDOOZNUBwMibigJIKnmbBWqSm2hxNZKw4Pj0WJM7VOA2AcixsjoeLqrjxUOh+uDih2ECX3QbvB4PTnl1tZbH1TCQHJUs1N2jkGSzH/s4cUo/4XpTzomWIYTjixDMm6TISsMrQVYZcLBPit9RiQNlgmJKFPcaJkdJ3Mi6eF6rYvMOSjyRZnl2H17ueF7fRPs16YtYOUvnCQrXZF6IHMyvK7xC7L8wA7GbyKbN+DlJ6KhgYnyKzZr0NnKv+YPMf4gM7mYrKwAAAAASUVORK5CYII=" />
                 <p class="fontnext">Mis solicitudes</p>
             </back>
         </div>
         <div class="row marginbottom1px">
-            <back class="col-50" ng-click="editProfile()">
+            <back class="col-50" ui-sref="app.userProfile">
                 <p></p><img class="font100" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAP1BMVEVHcEz///////////////////////////////////////////////////////////////////////////////9KjZoYAAAAFHRSTlMAYOAgwEAQ8DCggLDQf5DPr3BQT7W++CsAAAFVSURBVHhe1dTJbuswDEBRaqTkcej9/299D0gaVzJaOosuencCfGDCIix/ppDm/6X7wEUe+XIP5A00DsOweHRJd8SKHvKoAls2ycB0PlR2ZbNEgNKcFWu2nbF/62iQESdNBTVIvMwBBvEUgxhv+S0yckhTYjJvcui/ejVIIhpf/dLRX4NyGCT2gw1EkyRjUnthnLljDt8Y53FiNLZXB6OYTZTzUJjEbmH4eqhiV9Asz7JS5EaR9WnyRpQ7Zf95Nwktcqt4kii/Twp6TwQlyCMIcmlWnaWprOc4lbX0ogLNuocK03kvE9TQCQX86/wRgZrlVV6A7aMRxb1Inj1o7aYPVcHP+RRS9DnYruD3LJey86Duq6jP3SAm+aYUYe+ErKiTHzpi6cRib1MnAqT3hCyMbwqJ1j8hx04IP7aKtMImkwRIjbBzsCZTXLf3LSH+bSGTr65d13+G+RkKfiMoXwAAAABJRU5ErkJggg==" />
                 <p class="fontnext">Editar mis datos</p>
             </back>
@@ -29,7 +40,7 @@
                 <p></p><i class="ion-android-checkbox-outline font100"></i><p class="fontnext">Vistos recientemente</p>
             </back>
             <hr />
-            <back class="col-50" ng-click="MyPublished()">
+            <back class="col-50" ui-sref="app.MyPublished">
                 <p></p><i class="ion-ios-upload-outline font100"></i><p class="fontnext">Mis publicaciones</p>
             </back>
         </div>
@@ -47,8 +58,28 @@
             </back>
 
         </div>
+        <div class="row marginbottom1px">
+            <back class="col-50" ng-click="gotobuscarinmueble()">
+                <p></p><i class="icon ion-ios-home font100"></i><p class="fontnext">Busqueda guardada</p>
+            </back>
+            <hr />
+            <back class="col-50 login-menu" ng-click="login()">
+                <p></p><img class="font100" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAABHklEQVRIS92W7ZEBQRCGn41ACIjAXQZEIAUi4CK4kwEZkAGRIAMyIALqvZqpYqvtTK/lh/63M9397PTHTBfYMgeGQOfBfmr5ACyBWVQsDAtBJilPmfsC/UnXAp2AFvAN7DIdltW+gC2gk3UfgS7ByvoJD/fOj+Xs80GjkCtvvtyhk4EKZOAsjiSonPBoINhP6I+coqgNis6nwCKDZIIU/16GcVRR148T+iYoLjpYrANMIbWkMZCcKxIqEgvWKGgP9F8N2gDqMVfovMWwCpCqnD5d3uolPSUpqQ06A+ohlXaOJEHl21vfgijpnvvODXrbpZoTpuyGvVX8vIevyeHkGEc2a2bQePRbNzElu8pxS7qCqdraNYE6ifrtf6aTXAFbQlQbVHmKdQAAAABJRU5ErkJggg==" />
+                <p class="fontnext">Conectar</p>
+            </back>
+            <back class="col-50 logout-menu" ng-click="logout()">
+                <p></p><img class="font100" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAABHklEQVRIS92W7ZEBQRCGn41ACIjAXQZEIAUi4CK4kwEZkAGRIAMyIALqvZqpYqvtTK/lh/63M9397PTHTBfYMgeGQOfBfmr5ACyBWVQsDAtBJilPmfsC/UnXAp2AFvAN7DIdltW+gC2gk3UfgS7ByvoJD/fOj+Xs80GjkCtvvtyhk4EKZOAsjiSonPBoINhP6I+coqgNis6nwCKDZIIU/16GcVRR148T+iYoLjpYrANMIbWkMZCcKxIqEgvWKGgP9F8N2gDqMVfovMWwCpCqnD5d3uolPSUpqQ06A+ohlXaOJEHl21vfgijpnvvODXrbpZoTpuyGvVX8vIevyeHkGEc2a2bQePRbNzElu8pxS7qCqdraNYE6ifrtf6aTXAFbQlQbVHmKdQAAAABJRU5ErkJggg==" />
+                <p class="fontnext">DesConectar</p>
+            </back> 
+        </div>
+
     </ion-content>
 </ion-view>
+<style>
+    .login-menu, logout-menu {
+        display: none;
+    }
+</style>
 <style>
     back {
         background-color: #223168;

@@ -20,28 +20,28 @@
         </ion-header-bar>
         <ion-content class="stable-bg has-expanded-header">
             <ion-list>
-                <ion-item nav-clear menu-close ui-sref="app.Entrance">
-                    Pagina principal
+                <ion-item nav-clear menu-close  ng-click="backtohome()">
+                    pagina principal
                 </ion-item>
-                 <ion-item nav-clear menu-close ui-sref="app.filter">
+                 <ion-item nav-clear menu-close ng-click="gotobuscarinmueble()">
                     Buscar inmueble
                 </ion-item>
                 <ion-item nav-clear menu-close ng-click="matchingProperty()">
                     Busqueda guardada
                 </ion-item>
                 <ion-item nav-clear menu-close ng-click="propertyhome()">
-                     Inmuebles en venta
+                    Ultima busqueda
                   </ion-item>
-                <ion-item nav-clear menu-close ui-sref="app.favorateproperty">
+                <ion-item nav-clear menu-close ng-click="favproperty()">
                     Mis favoritos
                 </ion-item>
-                <ion-item nav-clear menu-close ui-sref="app.recentviewed">
+                <ion-item nav-clear menu-close ng-click="recentview()">
                     Vistos recientemente
                 </ion-item>
-                <ion-item nav-clear menu-close ui-sref="app.publishproperty">
+                <ion-item nav-clear menu-close ng-click="publishProperty()">
                     Publicar inmueble
                 </ion-item>
-                <ion-item nav-clear menu-close ui-sref="app.Admin">
+                <ion-item nav-clear menu-close ng-click="adminpage()">
                     Mi area privada
                 </ion-item>
                 <!--<ion-item nav-clear menu-close ui-sref="app.MyPublished">
