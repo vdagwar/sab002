@@ -20,11 +20,17 @@
             </div>
             
         </div>
+        <div class="PUBLICA-TU-INMUEBLE" ng-click="publishProperty()">
+            <!-- PUBLICA TU INMUEBLE -->
+            <i class="ion-upload"></i>
+            <h5 style="color:white"><strong>PUBLICA TU INMUEBLE</strong></h5>
+        </div>
         <div class="card" ng-if="publishedProperties.length ==0">
             <div class="item item-text-wrap">
                 No se encontraron archivos.
             </div>
         </div>
+        
         <div class="overlay">
             <div id="loading-img"></div>
         </div>
@@ -34,4 +40,6 @@
     .scroll{
         margin-top: 10%;
     }
+    .PUBLICA-TU-INMUEBLE, .EN-VENTA{background-color:#273262 !important;text-align:center;border-radius: 8px;margin:0 5px 0 5px;padding-top: 10px;padding-bottom: 10px;}
+    .PUBLICA-TU-INMUEBLE .ion-upload,.EN-VENTA .ion-ios-home{font-size:50px;color:#75cee9}
 </style>            
