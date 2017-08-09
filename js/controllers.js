@@ -1729,12 +1729,31 @@ angular.module('starter.controllers', [])
         maxWidth: 200,
         showDelay: 0
     });
-
+    var favorities = [{}];
     $scope.$parent.showHeader();
     $scope.$parent.clearFabs();
     $scope.isExpanded = true;
     $scope.$parent.setExpanded(true);
     $scope.$parent.setHeaderFab('right');
+
+    $scope.Checkfavorite = function () {
+        setTimeout(function () {
+            favorities = localStorageService.get('favorities');
+            if (favorities == null) {
+                favorities = [{}];
+                if (favorities[0].name == undefined) {
+                    favorities.splice(0, 1);
+                }
+            }
+            for (var d = 0; d < favorities.length; d++) {
+                for (var e = 0; e < $scope.RecentViewData.length; e++) {
+                    if ($scope.RecentViewData[e].productid == favorities[d].productid) {
+                        $('#' + $scope.RecentViewData[e].productid).toggleClass('ion-android-star-outline').toggleClass('ion-android-star');
+                    }
+                }
+            }
+        }, 500)
+    };
 
     $timeout(function () {
         ionicMaterialMotion.fadeSlideIn({
@@ -1749,9 +1768,10 @@ angular.module('starter.controllers', [])
                 $scope.RecentViewData.splice(i, 1);
             }
         }
+        $scope.Checkfavorite();
     }
 
-    $ionicLoading.hide();
+    $ionicLoading.hide();   
 
     var recentViewedProperty = [];
 
@@ -1786,7 +1806,36 @@ angular.module('starter.controllers', [])
         });
 
         localStorageService.set('PropertyId', propertyId);
+        localStorageService.set('propertyFave', property);
         $state.go('app.singleproperty');
+    }
+
+    $scope.addToFavority = function (propery) {
+        favorities = localStorageService.get('favorities');
+        if (favorities == null) {
+            favorities = [{}];
+            if (favorities[0].name == undefined) {
+                favorities.splice(0, 1);
+            }
+        }
+        var property_id = propery.productid;
+        $('#' + property_id).toggleClass('ion-android-star-outline').toggleClass('ion-android-star');
+        var flg = true;
+        if (favorities != null) {
+            for (var d = 0; d < favorities.length; d++) {
+                if (propery.productid == favorities[d].productid) {
+                    flg = false;
+                    favorities.splice(d, 1);
+                    break;
+                }
+            }
+
+        }
+
+        if (flg == true) {
+            favorities.push(propery);
+        }
+        localStorageService.set('favorities', favorities);
     }
 
     ionicMaterialInk.displayEffect();
