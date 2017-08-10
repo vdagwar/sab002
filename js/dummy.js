@@ -289,7 +289,7 @@ function PublishProductOnApprovedStatus() {
 
 
 var recordId = window.parent.Xrm.Page.data.entity.getId();
-debugger;
+
 if (recordId == "") {
     var guestReferralId = window.parent.Xrm.Page.getAttribute("vtv_opportunityguestreferral").getValue();
     var req = new XMLHttpRequest();

@@ -544,7 +544,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('propertyhomeCtrl', function ($scope, $http, $state, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk, filterModal, localStorageService, $ionicLoading, $ionicPopup) {
-    debugger;
+    
     //$(document).ready(function () {
     //    // init Isotope
     //    setTimeout(function () {
@@ -927,7 +927,7 @@ angular.module('starter.controllers', [])
         });
     }
     $scope.addToFavority = function (propery) {
-        debugger;
+        
         favorities = localStorageService.get('favorities');
         if (favorities == null) {
             favorities = [{}];
@@ -1681,7 +1681,7 @@ angular.module('starter.controllers', [])
             }
         }, 500)
     };
-    debugger
+    
     $scope.FavorateData = localStorageService.get('favorities');
     if ($scope.FavorateData != null) {
         for (var i = 0; i < $scope.FavorateData.length; i++) {

@@ -556,7 +556,7 @@ if(opportunityId == "" ||opportunityId == undefined && checknewaccount !=null)
         catch (e) {
 				alert(e.message);
 		}
-		debugger;
+		
 		if (result.vtv_Type.Value != null){
 			Xrm.Page.getAttribute("vtv_type").setValue(result.vtv_Type.Value);
 		}
