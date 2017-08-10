@@ -853,6 +853,8 @@ angular.module('starter.controllers', [])
         recentViewedProperty.splice(0, 1);
     }
     $scope.GoToSingleProperty = function (property, propertyId) {
+        debugger;
+        //1st loca
         localStorageService.set('PropertyId', propertyId);
         localStorageService.set('propertyFave', property);
         recentViewedProperty = localStorageService.get('recentViewedProperty');
@@ -1047,8 +1049,13 @@ angular.module('starter.controllers', [])
         maxWidth: 200,
         showDelay: 0
     });
-
+    var recentViewedProperty = [{}];
+    if (recentViewedProperty[0].name == undefined) {
+        recentViewedProperty.splice(0, 1);
+    }
     $scope.GetSingleProperty = function () {
+
+        //need to work here
         var propertyId = localStorageService.get('PropertyId');
 
         $http.get(serviceBase + "api/Property/GetById?PropertyGuid=" + propertyId).success(function (results) {
@@ -1070,7 +1077,33 @@ angular.module('starter.controllers', [])
 
                 getLatitudeLongitude(showResult, $scope.dest)
                 $scope.Checkfavorite();
-
+                recentViewedProperty = localStorageService.get('recentViewedProperty');
+                if (recentViewedProperty == null) {
+                    recentViewedProperty = [{}];
+                    if (recentViewedProperty[0].name == undefined) {
+                        recentViewedProperty.splice(0, 1);
+                    }
+                }
+                var Visitflg = true;
+                var property = localStorageService.get('propertyFave');
+                ////Flag to check record already exist or not....!!!!
+                for (var d = 0; d < recentViewedProperty.length; d++) {
+                    if (property.productid == recentViewedProperty[d].productid) {
+                        Visitflg = false;    ////if  already exist then set False....!!!!
+                    }
+                }
+                if (Visitflg == true)    ////if  True....!!!!
+                {
+                    if (recentViewedProperty.length >= 5)   ////Recent Viewd Array max length...
+                    {
+                        recentViewedProperty.shift();   ////  if Recent Viewd Array max length exceeded then remove oldest value....
+                        recentViewedProperty.push(property);     ////  Push New Value.......
+                    }
+                    else {
+                        recentViewedProperty.push(property);  ////  Push New Value.......
+                    }
+                }
+                localStorageService.set('recentViewedProperty', recentViewedProperty);
                 $ionicLoading.hide();
                 setTimeout(function () {
                     options();
@@ -1677,6 +1710,7 @@ angular.module('starter.controllers', [])
             }
 
         }
+        //2nd location
         localStorageService.set('recentViewedProperty', recentViewedProperty);
         $ionicLoading.show({
             content: 'Loading',
@@ -1795,6 +1829,8 @@ angular.module('starter.controllers', [])
                 recentViewedProperty.push(property);  ////  Push New Value.......
             }
         }
+        debugger;
+        ///3rd location
         localStorageService.set('recentViewedProperty', recentViewedProperty);
 
         $ionicLoading.show({
@@ -3112,6 +3148,9 @@ angular.module('starter.controllers', [])
                 recentViewedProperty.push(property);  ////  Push New Value.......
             }
         }
+
+        debugger;
+        //4th location
         localStorageService.set('recentViewedProperty', recentViewedProperty);
         $ionicLoading.show({
             content: 'Loading',
