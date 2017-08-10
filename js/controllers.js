@@ -854,7 +854,7 @@ angular.module('starter.controllers', [])
         recentViewedProperty.splice(0, 1);
     }
     $scope.GoToSingleProperty = function (property, propertyId) {
-        debugger;
+       
         //1st loca
         localStorageService.set('PropertyId', propertyId);
         localStorageService.set('propertyFave', property);
@@ -896,7 +896,7 @@ angular.module('starter.controllers', [])
     
     
     function divFunction() {
-        debugger;
+       
         $(".clicks").click(function () {
             var propertyId = this.id;
             localStorageService.set('PropertyId', propertyId);
@@ -918,7 +918,7 @@ angular.module('starter.controllers', [])
         });
     }
     $scope.addToFavority = function (propery) {
-        debugger;
+       
         favorities = localStorageService.get('favorities');
         if (favorities == null) {
             favorities = [{}];
@@ -1025,6 +1025,9 @@ angular.module('starter.controllers', [])
         // Execute action
     });
 
+    $scope.$on('$ionicView.enter', function () {
+        //$scope.title = "Detalles de la propiedad";
+    });
 
     $scope.$parent.showHeader();
     $scope.$parent.clearFabs();
@@ -1204,7 +1207,7 @@ angular.module('starter.controllers', [])
     }
 
     $scope.addToFavority = function (propery) {
-        debugger;
+       
         favorities = localStorageService.get('favorities');
         if (favorities == null) {
             favorities = [{}];
@@ -1228,7 +1231,7 @@ angular.module('starter.controllers', [])
 
 
         if (flg == true) {
-            debugger;
+           
             var proty = localStorageService.get('propertyFave');
             if (proty.productid) {
                 if (proty.productid == property_id) {
@@ -1313,11 +1316,11 @@ angular.module('starter.controllers', [])
         var timeCall = $("select#time").val();
         var dateCall = $("#dd").text().trim();
         var commentCall = $("textarea.comment").val();
-        debugger;
+       
 
       //  var q = new Date();
         var date = new Date();
-        debugger;
+       
         // Format day/month/year to two digits
         //date = date.setDate(date.getDate() - 1);
         var formattedDate = ('0' + (date.getDate())).slice(-2);
@@ -1771,6 +1774,7 @@ angular.module('starter.controllers', [])
     $scope.$parent.setExpanded(true);
     $scope.$parent.setHeaderFab('right');
 
+
     $scope.Checkfavorite = function () {
         setTimeout(function () {
             favorities = localStorageService.get('favorities');
@@ -1802,15 +1806,18 @@ angular.module('starter.controllers', [])
             if ($scope.RecentViewData[i].productid == undefined) {
                 $scope.RecentViewData.splice(i, 1);
             }
-        }
-        $scope.Checkfavorite();
+        }     
     }
 
+    $scope.$on('$ionicView.enter', function () {
+        $scope.Checkfavorite();
+    });
     $ionicLoading.hide();   
 
     var recentViewedProperty = [];
 
     $scope.GoToSingleProperty = function (property, propertyId) {
+        //location.reload();
         recentViewedProperty = localStorageService.get('recentViewedProperty');
         var Visitflg = true;    ////Flag to check record already exist or not....!!!!
         for (var d = 0; d < recentViewedProperty.length; d++) {
@@ -1830,7 +1837,7 @@ angular.module('starter.controllers', [])
                 recentViewedProperty.push(property);  ////  Push New Value.......
             }
         }
-        debugger;
+       
         ///3rd location
         localStorageService.set('recentViewedProperty', recentViewedProperty);
 
@@ -1903,7 +1910,7 @@ angular.module('starter.controllers', [])
     var PropertyImages = [];
     var imageName = "";
     $(".a").click(function () {
-        debugger;
+       
         a = $(this)[0].childNodes[0].attributes.id.nodeValue;
         value = $(this)[0].attributes.value.nodeValue;
 
@@ -2575,7 +2582,7 @@ angular.module('starter.controllers', [])
     $scope.HomeRecentViewData = localStorageService.get('recentViewedProperty');
 
     $scope.admin = function () {
-        debugger;
+       
         var email = sessionStorage.getItem('emailLogin');
         if (email == null) {
             var alertPopup = $ionicPopup.alert({
@@ -3151,7 +3158,7 @@ angular.module('starter.controllers', [])
             }
         }
 
-        debugger;
+       
         //4th location
         localStorageService.set('recentViewedProperty', recentViewedProperty);
         $ionicLoading.show({

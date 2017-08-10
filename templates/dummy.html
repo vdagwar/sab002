@@ -19,7 +19,7 @@
 
     <script>
         var handleFileSelect = function (evt) {
-            debugger;
+           
             var files = evt.target.files;
             var file = files[0];
             var filetype = file.type;
@@ -27,7 +27,7 @@
             if (files && file) {
                 var reader = new FileReader();
                 reader.onload = function (readerEvt) {
-                    debugger;
+                   
                     var binaryString = readerEvt.target.result;
                     // var imgdata = btoa(binaryString);
                     var imgdata = "data:" + filetype + ";base64," + btoa(binaryString);
@@ -152,7 +152,7 @@
         });
 
         function SaveImage() {
-            debugger;
+           
             var imgSrc = $("#CaptureImage").attr("src");
             //recordId = recordId.replace(/[{}]/g, "");
             imgSrc = _base64ToArrayBuffer(imgSrc);
@@ -293,7 +293,7 @@
         });
 
         function SaveImage() {
-            debugger;
+           
             var imgSrc = $("#CaptureImage").attr("src");
             //recordId = recordId.replace(/[{}]/g, "");
             imgSrc = _base64ToArrayBuffer(imgSrc);
@@ -427,7 +427,7 @@
         });
 
         function SaveImage() {
-            debugger;
+           
             var imgSrc = $("#CaptureImage").attr("src");
             //recordId = recordId.replace(/[{}]/g, "");
             imgSrc = _base64ToArrayBuffer(imgSrc);
@@ -599,7 +599,7 @@
                                 var regExp = /\(([^)]+)\)/;
                                 var matches = regExp.exec(uri);
                                 var newEntityId = matches[1];
-                                debugger;
+                               
                                 var parentIframe = $("#crmContentPanel").find("#contentIFrame0");
                                 if (parentIframe != null) {
                                     var getIframe = $(parentIframe.context)[0].getElementById("WebResource_TakeMBPhoto");
@@ -712,7 +712,7 @@
 
     <script>
         var handleFileSelect = function (evt) {
-            debugger;
+           
             var files = evt.target.files;
             var file = files[0];
             var filetype = file.type;
@@ -720,7 +720,7 @@
             if (files && file) {
                 var reader = new FileReader();
                 reader.onload = function (readerEvt) {
-                    debugger;
+                   
                     var binaryString = readerEvt.target.result;
                     // var imgdata = btoa(binaryString);
                     var imgdata = "data:" + filetype + ";base64," + btoa(binaryString);
@@ -807,7 +807,7 @@
                             if (filename == contactId + ".webp") {
                                 var mimetype = results.value[i].mimetype;
                                 var documentbody = results.value[i].documentbody;
-                                debugger;
+                               
                                 $("#memberimage").attr("src", mimetype + ";base64," + documentbody);
                                 $("#memberimage").css("display", "block");
                             }
@@ -1064,7 +1064,7 @@
             $scope.save = function (data1) {
                 var UserId = data1.UserId;
                 UserId = UserId.replace(/[{}]/g, "");
-                debugger;
+               
                 var fingerImage = $("#ItemPreview").attr("src");
                 if (fingerImage != "") {
                     var req = new XMLHttpRequest();

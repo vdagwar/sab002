@@ -373,7 +373,7 @@ if (recordId == "") {
                 }
 
 
-                debugger;
+               
                 if (result.vtv_type != null) {
                     Xrm.Page.getAttribute("vtv_type").setValue(result.vtv_type);
                 }

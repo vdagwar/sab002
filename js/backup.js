@@ -590,7 +590,7 @@ function RelatedContract() {
                     async: true,
                     success: function (data, textStatus, xhr) {
                         var result = data;
-                        debugger;
+                       
                         Xrm.Page.getAttribute("name").setValue(result.name);
                         var sourceFieldName = "pricelevelid";
                         try {
@@ -699,7 +699,7 @@ function RelatedContract() {
 
     }
 } function RelatedContract() {
-    debugger;
+   
     var recordId = Xrm.Page.data.entity.getId();
     if (recordId == "") {
         var parentContract = Xrm.Page.getAttribute("vtv_parentcontract").getValue();
@@ -721,7 +721,7 @@ function RelatedContract() {
                     async: true,
                     success: function (data, textStatus, xhr) {
                         var result = data;
-                        debugger;
+                       
                         Xrm.Page.getAttribute("name").setValue(result.name);
                         var sourceFieldName = "pricelevelid";
                         try {

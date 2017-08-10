@@ -81,7 +81,7 @@
     </div>
     <script>
         function CardReader(val) {
-            debugger;
+           
             if (val != "") {
                 var req = new XMLHttpRequest();
                 req.open("GET", window.parent.Xrm.Page.context.getClientUrl() + "/api/data/v8.2/vtv_cards?$filter=vtv_name eq '" + val + "'", true);             
@@ -251,7 +251,7 @@
     <script>
         var vtv_cardid = ""; var memberGuid = "";
         function CardReader(val) {
-            debugger;
+           
             if (val != "") {
                 var req = new XMLHttpRequest();
                 req.open("GET", window.parent.Xrm.Page.context.getClientUrl() + "/api/data/v8.2/vtv_cards?$filter=vtv_name eq '" + val + "'", true);
@@ -297,7 +297,7 @@
                 if (this.readyState === 4) {
                     req.onreadystatechange = null;
                     if (this.status === 200) {
-                        debugger;
+                       
                         var results = JSON.parse(this.response);
                         for (var i = 0; i < results.value.length; i++) {
                             var createdon = results.value[i]["createdon"];
@@ -354,7 +354,7 @@
         }
 
         function CreateCheckedIn() {
-            debugger;
+           
             var offset = +7;
             var datetimenow = new Date(new Date().getTime() + offset * 3600 * 1000).toUTCString().replace(/ GMT$/, "");
             var entity = {};
@@ -473,7 +473,7 @@
     <script>
         var vtv_cardid = ""; var memberGuid = "";
         function CardReader(val) {
-            debugger;
+           
             if (val != "") {
                 var req = new XMLHttpRequest();
                 req.open("GET", window.parent.Xrm.Page.context.getClientUrl() + "/api/data/v8.2/vtv_cards?$filter=vtv_name eq '" + val + "'", true);
@@ -519,7 +519,7 @@
                 if (this.readyState === 4) {
                     req.onreadystatechange = null;
                     if (this.status === 200) {
-                        debugger;
+                       
                         var results = JSON.parse(this.response);
                         for (var i = 0; i < results.value.length; i++) {
                             var createdon = results.value[i]["createdon"];
@@ -576,7 +576,7 @@
         }
 
         function CreateCheckedIn() {
-            debugger;
+           
             var offset = +7;
             var datetimenow = new Date(new Date().getTime() + offset * 3600 * 1000).toUTCString().replace(/ GMT$/, "");
             var entity = {};

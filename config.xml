@@ -5,6 +5,7 @@
 		versionCode=""
 		version   = "">
 		<name>SantJust</name>
+	<icon src="icon.png" />
 	    <plugin name="cordova-plugin-whitelist" spec="1" />
 	    <access origin="*" />
 	    <allow-intent href="http://*/*" />
