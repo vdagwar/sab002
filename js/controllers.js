@@ -208,24 +208,25 @@ angular.module('starter.controllers', [])
     }
 
     $scope.backtohome = function () {
-        var email = sessionStorage.getItem('emailLogin');
+        $state.go("app.Entrance");
+        //var email = sessionStorage.getItem('emailLogin');
 
-        if (email == null) {
-            email = localStorage.getItem('emailLogin');
-        }
-        if (email == "" || email == null || email == undefined) {
-            //$scope.showAlert("Inicia sesion para editar tu perfil");//Log in first to edit your profile
-            //return false;
-            var alertPopup = $ionicPopup.alert({
-                title: 'Mensaje',
-                template: "Inicia sesion"
-            });
-            alertPopup.then(function (res) {
-                $state.go("app.login");
-            });
-        } else {
-            $state.go("app.Entrance");
-        }
+        //if (email == null) {
+        //    email = localStorage.getItem('emailLogin');
+        //}
+        //if (email == "" || email == null || email == undefined) {
+        //    //$scope.showAlert("Inicia sesion para editar tu perfil");//Log in first to edit your profile
+        //    //return false;
+        //    var alertPopup = $ionicPopup.alert({
+        //        title: 'Mensaje',
+        //        template: "Inicia sesion"
+        //    });
+        //    alertPopup.then(function (res) {
+        //        $state.go("app.login");
+        //    });
+        //} else {
+        //    $state.go("app.Entrance");
+        //}
 
     }
     $scope.matchingProperty = function () {
@@ -2358,6 +2359,7 @@ angular.module('starter.controllers', [])
         //localStorageService.clearAll();
         //localStorage.getItem('userData', userData);
         $state.go("app.login");
+       
     };
     $scope.login = function () {
         $state.go("app.login");
