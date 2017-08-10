@@ -69,6 +69,7 @@ angular.module('starter.controllers', [])
 .controller('AppCtrl', function ($scope, $state,$ionicHistory, $ionicModal, $ionicPopover, $timeout, localStorageService, $ionicPopup) {
     $(document).ready(function () { setTimeout(function () { $(".has-header").css("top", $("ion-header-bar").height()); }, 300) })  
     // Form data for the login modal
+   
     $scope.loginData = {};
     $scope.isExpanded = false;
     $scope.hasHeaderFabLeft = false;
@@ -543,6 +544,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('propertyhomeCtrl', function ($scope, $http, $state, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk, filterModal, localStorageService, $ionicLoading, $ionicPopup) {
+    debugger;
     //$(document).ready(function () {
     //    // init Isotope
     //    setTimeout(function () {
@@ -668,6 +670,11 @@ angular.module('starter.controllers', [])
             }
         }, 500)
     };
+
+    $scope.$on('$ionicView.enter', function () {
+        $scope.Checkfavorite();
+    });
+
     $scope.loadinfobubble = function (locations) {
         var map = new google.maps.Map(document.getElementById('map1'), {
             zoom: 15,
@@ -824,6 +831,8 @@ angular.module('starter.controllers', [])
                 alert("Ha surgido un error");//Something went wrong
             });
         }
+
+            $scope.Checkfavorite();
     }
     $scope.getProperties();
 
@@ -918,7 +927,7 @@ angular.module('starter.controllers', [])
         });
     }
     $scope.addToFavority = function (propery) {
-       
+        debugger;
         favorities = localStorageService.get('favorities');
         if (favorities == null) {
             favorities = [{}];
@@ -990,7 +999,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('singlepropertyCtrl', function ($scope, $http, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk, $state, $ionicScrollDelegate, localStorageService, $ionicPopup, $ionicLoading, $ionicModal) {
-    $(document).ready(function () { setTimeout(function () { $(".has-header").css("top", $("ion-header-bar").height()); var as = $("ion-side-menu-content").children()[0]; $(as).css("display", "block"); }, 300) })
+    $(document).ready(function () { setTimeout(function () { $(".title.title-left.header-item").text("Detalles de la propiedad"); $(".has-header").css("top", $("ion-header-bar").height()); var as = $("ion-side-menu-content").children()[0]; $(as).css("display", "block"); }, 300) })
 
 
     $ionicModal.fromTemplateUrl('my-modal.html', {
@@ -1760,6 +1769,7 @@ angular.module('starter.controllers', [])
 
 .controller('recentviewedCtrl', function ($scope, $http, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk, $state, localStorageService, $ionicLoading) {
     $(document).ready(function () { setTimeout(function () { $(".has-header").css("top", $("ion-header-bar").height()); var as = $("ion-side-menu-content").children()[0]; $(as).css("display", "block"); }, 300) })
+    $(".title.title-left.header-item").text("Detalles de la propiedad");
     $ionicLoading.show({
         content: 'Loading',
         animation: 'fade-in',
@@ -2186,6 +2196,7 @@ angular.module('starter.controllers', [])
 
 .controller('AdminCtrl', function ($scope, $http, $stateParams,$ionicHistory, $timeout, ionicMaterialMotion, ionicMaterialInk, $state, localStorageService, $ionicPopup, $ionicModal) {
     $(document).ready(function () { setTimeout(function () { $(".has-header").css("top", $("ion-header-bar").height()); var as = $("ion-side-menu-content").children()[0]; $(as).css("display", "block"); }, 300) })
+   
     $(document).ready(function () {
         document.addEventListener("deviceready", onDeviceReady, false);
         $(".trigger").click(function () {
