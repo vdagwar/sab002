@@ -2197,6 +2197,22 @@ angular.module('starter.controllers', [])
                 || !!(!e.charCode && ~[8, 37, 39, 46].indexOf(e.keyCode));
     }
 
+    $("input.M2").keyup(function (e) {
+        var m2 = $("input.M2").val();
+        if (m2.indexOf(".") >= 0) {
+            $("input.M2").val(m2.slice(0, -1));
+            alert("No puedes ingresar punto en Price");
+        }
+    });
+
+    $("input.Price").keyup(function (e) {
+        var m2 = $("input.Price").val();
+        if (m2.indexOf(".") >= 0) {
+            $("input.Price").val(m2.slice(0, -1));
+            alert("No puedes ingresar punto en Price");
+        }
+    });
+
 })
 
 .controller('AdminCtrl', function ($scope, $http, $stateParams,$ionicHistory, $timeout, ionicMaterialMotion, ionicMaterialInk, $state, localStorageService, $ionicPopup, $ionicModal) {
