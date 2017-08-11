@@ -2190,7 +2190,12 @@ angular.module('starter.controllers', [])
                 || !!(!e.charCode && ~[8, 37, 39, 46].indexOf(e.keyCode));
     }
 
-
+    document.querySelector('.M2').onkeypress = validate;
+    function validateM2(e) {
+        e = e || event;
+        return /[0-9]/i.test(String.fromCharCode(e.charCode || e.keyCode))
+                || !!(!e.charCode && ~[8, 37, 39, 46].indexOf(e.keyCode));
+    }
 
 })
 
