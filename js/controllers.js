@@ -1,5 +1,6 @@
 /* global angular, document, window */
 'use strict';
+var reloadLogOut = false;
 var serviceBase = "http://sanjustapi.azurewebsites.net/";
 //var serviceBase = "http://localhost:17543/"
 angular.module('starter.controllers', [])
@@ -167,6 +168,7 @@ angular.module('starter.controllers', [])
     };
 
     $scope.logout = function () {
+        reloadLogOut = true;
         localStorage.removeItem('userData');
         localStorage.removeItem('emailLogin');
         localStorage.removeItem('contactGuid');
@@ -385,6 +387,10 @@ angular.module('starter.controllers', [])
 })
 
 .controller('LoginCtrl', function ($scope, $http, $timeout, $stateParams, ionicMaterialInk, $ionicPopup, $ionicLoading, localStorageService, $state) {
+    if (reloadLogOut == true) {
+        reloadLogOut = false;
+        location.reload();
+    }
     $scope.show = true;
     $scope.Mostar = function () {
         $scope.show = true;
@@ -2378,6 +2384,7 @@ angular.module('starter.controllers', [])
     //}
     
     $scope.logout = function () {
+        reloadLogOut = true;
         localStorage.removeItem('userData');
         localStorage.removeItem('emailLogin');
         localStorage.removeItem('contactGuid');
@@ -2594,6 +2601,7 @@ angular.module('starter.controllers', [])
     }
 
     $scope.logout = function () {
+        reloadLogOut = true;
         $ionicHistory.clearHistory();
         $ionicHistory.clearCache();
         localStorage.removeItem('userData');
