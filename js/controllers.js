@@ -2768,11 +2768,11 @@ angular.module('starter.controllers', [])
 
     var image64 = "";
     $("#registerCustomer").click(function () {
-        
-        var email = sessionStorage.getItem('emailLogin');
-        if (email == null) {
-            email = localStorage.getItem('emailLogin');
-        }
+        debugger;
+        //var email = sessionStorage.getItem('emailLogin');
+        //if (email == null) {
+        //    email = localStorage.getItem('emailLogin');
+        //}
         if (email == "" || email == null || email == undefined) {
             $ionicLoading.show({
                 content: 'Loading',

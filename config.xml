@@ -92,8 +92,8 @@
     <plugin name="cordova-plugin-contacts" spec="^2.3.1">
         <variable name="CONTACTS_USAGE_DESCRIPTION" value=" " />
     </plugin>
-	<plugin name="org.apache.cordova.splashscreen" spec="0.2.7" source="pgb" />
     <plugin name="cordova-plugin-device" spec="^1.1.6" />
+	<plugin name="cordova-plugin-splashscreen" source="npm" />
     <preference name="AutoHideSplashScreen" value="true" />
     <preference name="SplashScreenDelay" value="3000" />
 	<preference name = "SplashMaintainAspectRatio" value = "true" />
