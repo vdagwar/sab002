@@ -28,10 +28,10 @@
             </div>
             <div class="row">
                 <label>
-                    <input name="checkbox" type="checkbox" id="rememberPassword"/>
+                    <input name="checkbox" type="checkbox" id="rememberPassword" checked="checked" ng-model="user.checked">
                     <span></span>
                 </label>
-                <div class="col"><input type="checkbox" checked="checked">Mantener sesion iniciada</div>
+                <div class="col">Mantener sesion iniciada</div>
                 <div class="col"><a href="" style="color:palevioletred" ng-click="ForgetPassword()"  ng-hide="userForm.email.$invalid">He olvidado mi constrasena?</a></div>
             </div>
             <div class="padding">

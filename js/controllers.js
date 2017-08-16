@@ -1,8 +1,8 @@
 /* global angular, document, window */
 'use strict';
 var reloadLogOut = false;
-var serviceBase = "http://sanjustapi.azurewebsites.net/";
-//var serviceBase = "http://localhost:17543/"
+//var serviceBase = "http://sanjustapi.azurewebsites.net/";
+var serviceBase = "http://localhost:17543/"
 angular.module('starter.controllers', [])
 
 .directive('passwordValidate', function () {
@@ -169,8 +169,8 @@ angular.module('starter.controllers', [])
 
     $scope.logout = function () {
         reloadLogOut = true;
-        localStorage.removeItem('userData');
-        localStorage.removeItem('emailLogin');
+        //localStorage.removeItem('userData');
+        //localStorage.removeItem('emailLogin');
         localStorage.removeItem('contactGuid');
         localStorageService.remove('contactGuid');
         localStorage.removeItem('contactImage');
@@ -391,7 +391,7 @@ angular.module('starter.controllers', [])
         reloadLogOut = false;
         location.reload();
     }
-    $scope.show = true;
+    $scope.show = true;   
     $scope.Mostar = function () {
         $scope.show = true;
         $("#passwordlogin").attr("type", "password");
@@ -400,7 +400,18 @@ angular.module('starter.controllers', [])
         $scope.show = false;
         $("#passwordlogin").attr("type", "text");
     };
-    $(document).ready(function () { setTimeout(function () { $(".has-header").css("top", $("ion-header-bar").height()); }, 300) })
+    $(document).ready(function () {
+        setTimeout(function () { $(".has-header").css("top", $("ion-header-bar").height()); }, 300);
+        $scope.user = { email: "", Password: "", checked: false };
+
+        if (JSON.parse(localStorage.getItem('userData')).checked == true) {
+            if (localStorage.getItem('emailLogin')) {
+                $scope.user.email = localStorage.getItem('emailLogin');
+                $scope.user.checked = true;
+                $scope.user.Password = JSON.parse(localStorage.getItem('userData')).password;
+            }
+        }
+    })
     $(document).ready(function () { setTimeout(function () { $(".has-header").css("top", $("ion-header-bar").height()); var as = $("ion-side-menu-content").children()[0]; $(as).css("display", "block"); }, 300) })
     $scope.$parent.clearFabs();
     $timeout(function () {
@@ -447,24 +458,26 @@ angular.module('starter.controllers', [])
         }
 
         $http.get(serviceBase + "api/getContact?email=" + email).success(function (results) {
-            $scope.contactDetail = results;
-            sessionStorage.setItem('contactImage', results.contactImage);
-            sessionStorage.setItem('userData', JSON.stringify(results));
-            sessionStorage.setItem('emailLogin', email);
-            sessionStorage.setItem('contactGuid', results.contactGuid);
+            $scope.contactDetail = results;           
             if (results.contactGuid == null) {
                 $scope.showAlert("El contacto con el correo electronico " + email + " no existe ");
             } else {
                 if (results.password == password) {
+                    sessionStorage.setItem('contactImage', results.contactImage);
                     sessionStorage.setItem('userData', JSON.stringify(results));
-                    sessionStorage.setItem('emailLogin', email)
+                    sessionStorage.setItem('emailLogin', email);
+                    sessionStorage.setItem('contactGuid', results.contactGuid);
                     if ($('#rememberPassword').is(':checked')) {
+                        results.checked = true;
                         localStorage.setItem('userData', JSON.stringify(results));
                         localStorage.setItem('emailLogin', email);
                         localStorage.setItem('contactImage', results.contactImage);
                         localStorage.setItem('contactGuid', results.contactGuid);
                     }
-
+                    else {
+                        results.checked = false;
+                        localStorage.setItem('userData', JSON.stringify(results));                       
+                    }
                     $scope.showAlert("Bienvenido " + results.firstname);
                     $state.go("app.Entrance");
                 } else {
@@ -1308,7 +1321,7 @@ angular.module('starter.controllers', [])
 
     $(".Mobile").val(mobile);
     $scope.scheduleCall = function () {
-
+       
 
         if (guidContact == null) {
             //$scope.showAlert("Inicie sesion para programar una llamada");//Log in first to schedule a call
@@ -1377,7 +1390,7 @@ angular.module('starter.controllers', [])
             return false;
         }
         if (timeCall == "hora" || timeCall == undefined || timeCall == "") {
-            $scope.showAlert("Elige hora ");//Provide time to call
+          $scope.showAlert("Elige hora ");//Provide time to call
             return false;
         }
 
@@ -2004,7 +2017,7 @@ angular.module('starter.controllers', [])
         var PropertyName = $(".Property-Name").val();
         var PropertyTitle = $(".Property-title").val();
         if (PropertyTitle == "" || PropertyTitle == undefined) {
-            $scope.showAlert("Titulo");
+            $scope.showAlert("2.NOMBRE DE LA PROPIEDAD");
             return false;
         }
         
@@ -2117,7 +2130,7 @@ angular.module('starter.controllers', [])
     $scope.showAlert = function (field) {
         var alertPopup = $ionicPopup.alert({
             title: 'Campo requerido!',
-            template: 'Introduzca un valor en ' + field//Enter the value of "field name"
+            template: 'Introduzca un valor en el campo ' + field//Enter the value of "field name"
         });
         alertPopup.then(function (res) {
 
@@ -2385,8 +2398,8 @@ angular.module('starter.controllers', [])
     
     $scope.logout = function () {
         reloadLogOut = true;
-        localStorage.removeItem('userData');
-        localStorage.removeItem('emailLogin');
+        //localStorage.removeItem('userData');
+        //localStorage.removeItem('emailLogin');
         localStorage.removeItem('contactGuid');
         localStorageService.remove('contactGuid');
         localStorage.removeItem('contactImage');
@@ -2604,8 +2617,8 @@ angular.module('starter.controllers', [])
         reloadLogOut = true;
         $ionicHistory.clearHistory();
         $ionicHistory.clearCache();
-        localStorage.removeItem('userData');
-        localStorage.removeItem('emailLogin');
+        //localStorage.removeItem('userData');
+        //localStorage.removeItem('emailLogin');
         localStorage.removeItem('contactGuid');
         localStorage.removeItem('contactImage');
         localStorageService.set('minPrice',null);
@@ -2696,8 +2709,8 @@ angular.module('starter.controllers', [])
             $scope.showAlert("Borrado exitosamente");
         }).error(function (err) {
             $scope.showAlert("No se puede eliminar");
-            $ionicLoading.hide();
-            $scope.showAlert("Ha surgido un error");//Something went wrong
+            //$ionicLoading.hide();
+            //$scope.showAlert("Ha surgido un error");//Something went wrong
         });
     }
 
