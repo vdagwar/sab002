@@ -174,6 +174,7 @@ angular.module('starter.controllers', [])
         localStorage.removeItem('contactGuid');
         localStorageService.remove('contactGuid');
         localStorage.removeItem('contactImage');
+        localStorage.removeItem('emailLogin');
         sessionStorage.removeItem('emailLogin');
         $ionicHistory.clearHistory();
         $ionicHistory.clearCache();
@@ -1473,7 +1474,7 @@ angular.module('starter.controllers', [])
     var propertyType = localStorageService.get("propertyType", propertyType);
     $scope.showAlert = function () {
         var alertPopup = $ionicPopup.alert({
-            title: 'alert!',
+            title: 'Alerta!',
             template: 'Please select any value'
         });
 
@@ -2017,7 +2018,7 @@ angular.module('starter.controllers', [])
         var PropertyName = $(".Property-Name").val();
         var PropertyTitle = $(".Property-title").val();
         if (PropertyTitle == "" || PropertyTitle == undefined) {
-            $scope.showAlert("2.NOMBRE DE LA PROPIEDAD");
+            $scope.showAlert("NOMBRE DE LA PROPIEDAD");
             return false;
         }
         
@@ -2033,8 +2034,8 @@ angular.module('starter.controllers', [])
         if (Price.indexOf(',') !== -1) {
             Price = Price.replace(',', '');
         }
-        if (Price.indexOf('Â€') !== -1) {
-            Price = Price.replace('Â€', '');
+        if (Price.indexOf('€') !== -1) {
+            Price = Price.replace('€', '');
         }
         if (Price == "" || Price == undefined) {
             $scope.showAlert("Precio de venta Euro");
@@ -2220,7 +2221,7 @@ angular.module('starter.controllers', [])
         var m2 = $("input.M2").val();
         if (m2.indexOf(".") >= 0) {
             $("input.M2").val(m2.slice(0, -1));
-            alert("No puedes ingresar punto en Price");
+            alert("No se puede poner puntos o comas");
         }
     });
 
@@ -2228,7 +2229,7 @@ angular.module('starter.controllers', [])
         var m2 = $("input.Price").val();
         if (m2.indexOf(".") >= 0) {
             $("input.Price").val(m2.slice(0, -1));
-            alert("No puedes ingresar punto en Price");
+            alert("No se puede poner puntos o comas");
         }
     });
 
@@ -2402,6 +2403,7 @@ angular.module('starter.controllers', [])
         //localStorage.removeItem('emailLogin');
         localStorage.removeItem('contactGuid');
         localStorageService.remove('contactGuid');
+        localStorage.removeItem('emailLogin');
         localStorage.removeItem('contactImage');
         sessionStorage.removeItem('emailLogin');
         $ionicHistory.clearHistory();
@@ -2617,10 +2619,13 @@ angular.module('starter.controllers', [])
         reloadLogOut = true;
         $ionicHistory.clearHistory();
         $ionicHistory.clearCache();
-        //localStorage.removeItem('userData');
-        //localStorage.removeItem('emailLogin');
+        //////////////////////////////
+        localStorage.removeItem('userData');
+        localStorage.removeItem('emailLogin');
+
         localStorage.removeItem('contactGuid');
         localStorage.removeItem('contactImage');
+        localStorage.removeItem('emailLogin');
         localStorageService.set('minPrice',null);
         localStorageService.set('maxPrice',null);
         sessionStorage.removeItem('userData');
