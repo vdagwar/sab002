@@ -169,8 +169,8 @@ angular.module('starter.controllers', [])
 
     $scope.logout = function () {
         reloadLogOut = true;
-        //localStorage.removeItem('userData');
-        //localStorage.removeItem('emailLogin');
+        localStorage.removeItem('userData');
+        localStorage.removeItem('emailLogin');
         localStorage.removeItem('contactGuid');
         localStorageService.remove('contactGuid');
         localStorage.removeItem('contactImage');
@@ -405,11 +405,10 @@ angular.module('starter.controllers', [])
         setTimeout(function () { $(".has-header").css("top", $("ion-header-bar").height()); }, 300);
         $scope.user = { email: "", Password: "", checked: false };
 
-        if (JSON.parse(localStorage.getItem('userData')).checked == true) {
-            if (localStorage.getItem('emailLogin')) {
-                $scope.user.email = localStorage.getItem('emailLogin');
-                $scope.user.checked = true;
-                $scope.user.Password = JSON.parse(localStorage.getItem('userData')).password;
+       
+        if (localStorage.getItem('logInRemember')) {
+            if (JSON.parse(localStorage.getItem('logInRemember')).checked == true) {
+                $scope.user = JSON.parse(localStorage.getItem('logInRemember'));
             }
         }
     })
@@ -468,16 +467,15 @@ angular.module('starter.controllers', [])
                     sessionStorage.setItem('userData', JSON.stringify(results));
                     sessionStorage.setItem('emailLogin', email);
                     sessionStorage.setItem('contactGuid', results.contactGuid);
+                    localStorage.setItem('userData', JSON.stringify(results));
+                    localStorage.setItem('emailLogin', email);
+                    localStorage.setItem('contactImage', results.contactImage);
+                    localStorage.setItem('contactGuid', results.contactGuid);
                     if ($('#rememberPassword').is(':checked')) {
-                        results.checked = true;
-                        localStorage.setItem('userData', JSON.stringify(results));
-                        localStorage.setItem('emailLogin', email);
-                        localStorage.setItem('contactImage', results.contactImage);
-                        localStorage.setItem('contactGuid', results.contactGuid);
+                        localStorage.setItem('logInRemember', JSON.stringify($scope.user));                        
                     }
                     else {
-                        results.checked = false;
-                        localStorage.setItem('userData', JSON.stringify(results));                       
+                        localStorage.setItem('logInRemember', JSON.stringify($scope.user));
                     }
                     $scope.showAlert("Bienvenido " + results.firstname);
                     $state.go("app.Entrance");
@@ -1427,7 +1425,7 @@ angular.module('starter.controllers', [])
 
     $scope.showAlert = function (message) {
         var alertPopup = $ionicPopup.alert({
-            title: 'Alerta',
+           
             template: message
         });
         alertPopup.then(function (res) {
@@ -2399,8 +2397,8 @@ angular.module('starter.controllers', [])
     
     $scope.logout = function () {
         reloadLogOut = true;
-        //localStorage.removeItem('userData');
-        //localStorage.removeItem('emailLogin');
+        localStorage.removeItem('userData');
+        localStorage.removeItem('emailLogin');
         localStorage.removeItem('contactGuid');
         localStorageService.remove('contactGuid');
         localStorage.removeItem('emailLogin');
