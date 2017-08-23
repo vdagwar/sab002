@@ -6,8 +6,8 @@
         version="1.0.0.1">
     <name>SantJust</name>
     <icon src="icon.png" />
-	<splash src="splash.png" />android.permission.RECORD_AUDIO
-	
+	<splash src="splash.png" />
+
     <plugin name="cordova-plugin-whitelist" spec="1" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -26,6 +26,11 @@
     </platform>
     <platform name="android">
         <allow-intent href="market:*" />
+		<config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+			 <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+			  <uses-permission android:name="android.permission.READ_CONTACTS"/>
+        </config-file>
         <icon src="res/android/icon/ldpi.png" density="ldpi" />
         <icon src="res/android/icon/mdpi.png" density="mdpi" />
         <icon src="res/android/icon/hdpi.png" density="hdpi" />
