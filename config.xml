@@ -6,8 +6,10 @@
         version="1.0.0.1">
     <name>SantJust</name>
     <icon src="icon.png" />
-	<splash src="splash.png" />
-   
+	<splash src="splash.png" />android.permission.RECORD_AUDIO
+	<uses-permission android:name="android.permission.RECORD_AUDIO" tools:node="remove" />
+   <uses-permission android:name="android.permission.GET_ACCOUNTS" tools:node="remove" />
+   <uses-permission android:name="android.permission.READ_CONTACTS" tools:node="remove" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -97,4 +99,5 @@
     <preference name="AutoHideSplashScreen" value="true" />
     <preference name="SplashScreenDelay" value="3000" />
     <preference name="SplashMaintainAspectRatio" value="true" />
+	
 </widget>
