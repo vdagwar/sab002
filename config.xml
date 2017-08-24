@@ -26,10 +26,6 @@
     </platform>
     <platform name="android">
         <allow-intent href="market:*" />
-		    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-			 <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-			  <uses-permission android:name="android.permission.READ_CONTACTS" />
-     
         <icon src="res/android/icon/ldpi.png" density="ldpi" />
         <icon src="res/android/icon/mdpi.png" density="mdpi" />
         <icon src="res/android/icon/hdpi.png" density="hdpi" />
