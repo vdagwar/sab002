@@ -15,6 +15,18 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+	<ios>
+    <plist>
+        <dict>
+            <key>NSContactsUsageDescription</key>
+            <string>Can we use to your contacts?</string>
+            <key>NSCameraUsageDescription</key>
+            <string>Can we use your camera?</string>
+             <key>NSPhotoLibraryUsageDescription</key>
+            <string>Can we save to your library?</string>
+        </dict>
+    </plist>
+</ios>
 
     <platform name="android">
         <splash src="res/android/screen/ldpi.png" platform="android" qualifier="ldpi" />
@@ -35,6 +47,7 @@
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
+		
         <platform name="ios">
             <splash src="res/ios/screen/Default~iphone.png" width="320" height="480" />
             <splash src="res/ios/screen/Default@2x~iphone.png" width="640" height="960" />
@@ -78,11 +91,7 @@
         </platform>
     </platform>
     <engine name="ios" spec="~4.4.0" />
-    <plugin name="cordova-plugin-camera" spec="^2.4.1">
-        <variable name="CAMERA_USAGE_DESCRIPTION" value="We are using the Camera to upload the real state property pictures " />
-        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="We are using the PHOTOLIBRARY to upload the existing real state property pictures from gallery" />
-    </plugin>
-	
+    	
     <plugin name="cordova-plugin-media-capture" spec="^1.4.3">
         <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />
         <variable name="MICROPHONE_USAGE_DESCRIPTION" value=" " />
