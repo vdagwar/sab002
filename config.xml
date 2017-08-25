@@ -3,7 +3,7 @@
         xmlns:gap="http://phonegap.com/ns/1.0"
         id="com.sanjust.app"
         versionCode="10"
-        version="0.1.2">
+        version="0.1.3">
 
     <name>SantJust</name>
     <icon src="icon.png" />
