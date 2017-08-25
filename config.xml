@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <widget xmlns="http://www.w3.org/ns/widgets"
         xmlns:gap="http://phonegap.com/ns/1.0"
-        id="com.sanjustmobile.app"
+        id="com.sanjust.app"
         versionCode="10"
-        version="1.00">
+        version="0.1.2">
     <name>SantJust</name>
     <icon src="icon.png" />
 	<splash src="splash.png" />
-
-    <plugin name="cordova-plugin-whitelist" spec="1" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -25,7 +23,7 @@
         
     </platform>
     <platform name="android">
-        <allow-intent href="market:*" />
+       <allow-intent href="market:*" />
         <icon src="res/android/icon/ldpi.png" density="ldpi" />
         <icon src="res/android/icon/mdpi.png" density="mdpi" />
         <icon src="res/android/icon/hdpi.png" density="hdpi" />
@@ -80,10 +78,10 @@
     </platform>
     <engine name="ios" spec="~4.4.0" />
     <plugin name="cordova-plugin-camera" spec="^2.4.1">
-        <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />
-        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" " />
+        <variable name="CAMERA_USAGE_DESCRIPTION" value="We are using the Camera to upload the real state property pictures " />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="We are using the PHOTOLIBRARY to upload the existing real state property pictures from gallery" />
     </plugin>
-    <plugin name="cordova-plugin-file" spec="^4.3.3" />
+	
     <plugin name="cordova-plugin-media-capture" spec="^1.4.3">
         <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />
         <variable name="MICROPHONE_USAGE_DESCRIPTION" value=" " />
@@ -92,6 +90,8 @@
     <plugin name="cordova-plugin-contacts" spec="^2.3.1">
         <variable name="CONTACTS_USAGE_DESCRIPTION" value=" " />
     </plugin>
+	<plugin name="cordova-plugin-whitelist" spec="1" />
+	 <plugin name="cordova-plugin-file" spec="^4.3.3" />
     <plugin name="cordova-plugin-device" spec="^1.1.6" />
     <plugin name="cordova-plugin-splashscreen" source="npm" />
     <preference name="AutoHideSplashScreen" value="true" />
