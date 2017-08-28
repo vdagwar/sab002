@@ -1,14 +1,1 @@
-<plist>
-<dict>
-<key>NSCameraUsageDescription</key>
-<string>Used to create user's profile picture</string>
 
-<key>NSContactsUsageDescription</key>
-<string>Used to create SANT JUST CONTACT in contacts when clicking on button</string>
-
-<key>NSPhotoLibraryUsageDescription</key>
-<string>Used to upload property pictures</string>
-
-</dict>
-</plist>
-<key>NSAppTransportSecurity</key>
